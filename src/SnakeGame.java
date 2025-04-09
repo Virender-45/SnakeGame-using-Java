@@ -43,7 +43,7 @@ public class SnakeGame extends JPanel implements ActionListener, KeyListener{
 		placeFood();
 		
 		velocityX = 0;
-		velocityY = 1;
+		velocityY = 0;
 		
 		gameLoop = new Timer(100, this);
 		gameLoop.start();
@@ -92,10 +92,25 @@ public class SnakeGame extends JPanel implements ActionListener, KeyListener{
 	
 	@Override
 	public void keyPressed(KeyEvent e) {
-		
+		if(e.getKeyCode() == KeyEvent.VK_UP) {
+			velocityX = 0;
+			velocityY = -1;
+		}
+		else if(e.getKeyCode() == KeyEvent.VK_DOWN) {
+			velocityX = 0;
+			velocityY = 1;
+		}
+		if(e.getKeyCode() == KeyEvent.VK_LEFT) {
+			velocityX = -1;
+			velocityY = 0;
+		}
+		if(e.getKeyCode() == KeyEvent.VK_RIGHT) {
+			velocityX = 1;
+			velocityY = 0;
+		}
 	}
 
-	//do not need this
+	//do not need
 	@Override
 	public void keyTyped(KeyEvent e) {}
 	@Override
